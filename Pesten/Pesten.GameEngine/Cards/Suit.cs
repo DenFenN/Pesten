@@ -2,6 +2,7 @@
 {
     enum Suit
     {
+        None,
         Hearts,
         Diamonds,
         Clubs,

@@ -1,0 +1,8 @@
+C:\Source\Repos\Pesten\Pesten\Pesten\bin\Debug\Pesten.exe.config
+C:\Source\Repos\Pesten\Pesten\Pesten\bin\Debug\Pesten.exe
+C:\Source\Repos\Pesten\Pesten\Pesten\bin\Debug\Pesten.pdb
+C:\Source\Repos\Pesten\Pesten\Pesten\obj\Debug\Pesten.App.csprojResolveAssemblyReference.cache
+C:\Source\Repos\Pesten\Pesten\Pesten\obj\Debug\Pesten.Properties.Resources.resources
+C:\Source\Repos\Pesten\Pesten\Pesten\obj\Debug\Pesten.App.csproj.GenerateResource.Cache
+C:\Source\Repos\Pesten\Pesten\Pesten\obj\Debug\Pesten.exe
+C:\Source\Repos\Pesten\Pesten\Pesten\obj\Debug\Pesten.pdb

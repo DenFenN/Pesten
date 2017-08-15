@@ -41,6 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards\Card.cs" />
+    <Compile Include="Cards\Deck.cs" />
+    <Compile Include="SpecialCardCalculators\DutchSpecialCardCalculator.cs" />
+    <Compile Include="SpecialCardCalculators\ISpecialCardCalculator.cs" />
+    <Compile Include="Cards\Joker.cs" />
+    <Compile Include="Cards\SpecialCardOption.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Cards\Face.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

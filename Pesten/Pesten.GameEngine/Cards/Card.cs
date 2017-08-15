@@ -1,6 +1,8 @@
-﻿namespace Pesten.GameEngine.Cards
+﻿using Pesten.GameEngine.SpecialCardCalculators;
+
+namespace Pesten.GameEngine.Cards
 {
-    class Card
+    internal class Card
     {
         public Suit Suit { get; set; }
 
@@ -8,11 +10,16 @@
 
         public bool SpecialCard { get; set; }
 
+        public bool IsJoker { get; set; }
 
-        public Card(Suit suit, Face face)
+        public Card(Suit suit, Face face, ISpecialCardCalculator specialCardCalculator)
         {
+            Suit = suit;
+            Face = face;
 
+            SpecialCard = specialCardCalculator.IsSpecialCard(Face);
         }
+
 
 
     }

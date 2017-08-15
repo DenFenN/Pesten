@@ -15,5 +15,7 @@
         Queen = 12,
         King = 13,
         Ace = 14,
+
+        Joker,
     }
 }
