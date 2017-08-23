@@ -41,15 +41,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards\Card.cs" />
-    <Compile Include="Cards\Deck.cs" />
+    <Compile Include="Cards\CardManager.cs" />
+    <Compile Include="Properties\InternalsVisibleTo.cs" />
+    <Compile Include="Players\Player.cs" />
+    <Compile Include="Players\PlayerManager.cs" />
     <Compile Include="SpecialCardCalculators\DutchSpecialCardCalculator.cs" />
-    <Compile Include="SpecialCardCalculators\ISpecialCardCalculator.cs" />
     <Compile Include="Cards\Joker.cs" />
-    <Compile Include="Cards\SpecialCardOption.cs" />
+    <Compile Include="SpecialCardCalculators\SpecialCardOption.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Cards\Face.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Cards\Suit.cs" />
+    <Compile Include="SpecialCardCalculators\SpecialCardCalculator.cs" />
+    <Compile Include="SpecialCardCalculators\TienWasmasjienCardCalculator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

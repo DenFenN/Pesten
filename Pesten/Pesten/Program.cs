@@ -1,13 +1,13 @@
 ﻿using Pesten.GameEngine;
+using Pesten.GameEngine.SpecialCardCalculators;
 using System;
 using System.Windows.Forms;
 
-namespace Pesten
+namespace Pesten.App
 {
     static class Program
     {
-        internal static Engine GaneEngine = new Engine();
-
+        internal static Engine GameEngine = new Engine(new DutchSpecialCardCalculator());
 
         /// <summary>
         /// The main entry point for the application.

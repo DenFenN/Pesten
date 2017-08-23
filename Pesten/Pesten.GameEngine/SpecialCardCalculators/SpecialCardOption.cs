@@ -5,9 +5,10 @@
         None,
         TurnDirection,        
         Take2Cards,           
-        Take5Cards,           
+        Take5Cards,    
         PlayAnotherCard,      
         NextPlayerSkipTurn,   
-        ChooseNewSuit,        
+        ChooseNewSuit,
+        GiveCardToNextPlayer,
     }
 }

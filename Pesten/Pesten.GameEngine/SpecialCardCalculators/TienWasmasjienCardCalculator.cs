@@ -1,10 +1,12 @@
-﻿using System;
-using Pesten.GameEngine.Cards;
+﻿using Pesten.GameEngine.Cards;
 
 namespace Pesten.GameEngine.SpecialCardCalculators
 {
-    class DutchSpecialCardCalculator : SpecialCardCalculator
+    class TienWasmasjienCardCalculator : SpecialCardCalculator
     {
+
+
+
 
         public override SpecialCardOption Option(Face face)
         {
@@ -18,6 +20,10 @@ namespace Pesten.GameEngine.SpecialCardCalculators
 
                 case Face.Eight:
                     return SpecialCardOption.NextPlayerSkipTurn;
+
+                case Face.Ten:
+                    return SpecialCardOption.GiveCardToNextPlayer;
+
 
                 case Face.Jack:
                     return SpecialCardOption.ChooseNewSuit;
@@ -41,6 +47,7 @@ namespace Pesten.GameEngine.SpecialCardCalculators
                 case Face.Two:
                 case Face.Seven:
                 case Face.Eight:
+                case Face.Ten:
                 case Face.Jack:
                 case Face.Ace:
                 case Face.Joker:
@@ -50,6 +57,5 @@ namespace Pesten.GameEngine.SpecialCardCalculators
                     return false;
             }
         }
-
     }
 }

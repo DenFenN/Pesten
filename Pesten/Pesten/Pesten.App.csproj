@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3A6AE35F-262D-44A0-9976-3DE553A7BC6D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Pesten</RootNamespace>
-    <AssemblyName>Pesten</AssemblyName>
+    <RootNamespace>Pesten.App</RootNamespace>
+    <AssemblyName>Pesten.App</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -64,6 +64,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
