@@ -1,28 +1,73 @@
-﻿using Pesten.GameEngine.SpecialCardCalculators;
+﻿using Pesten.GameEngine.Players;
+using Pesten.GameEngine.SpecialCardCalculators;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Security.Cryptography;
 
 namespace Pesten.GameEngine.Cards
 {
     internal class CardManager
     {
-        private readonly List<Card> _cards = new List<Card>();
-        private int _numberOfDecks = 0;
-
-        private SpecialCardCalculator _specialCardCalculator;
-
         public IReadOnlyList<Card> Cards => _cards;
 
-        public CardManager(int numberOfDecks, SpecialCardCalculator specialCardCalculator)
-        {
-            _numberOfDecks = numberOfDecks;
-            _specialCardCalculator = specialCardCalculator;
+        private readonly List<Card> _cards = new List<Card>();
+        private readonly List<Card> _stock = new List<Card>();
 
-            AddDecks();
+        private PlayerManager _playerManager;
+
+        private int _numberOfDecks = 0;
+        private SpecialCardCalculator _specialCardCalculator;
+
+        private int GetNumberOfDecks(int numberOfPlayers)
+        {
+            var numberOfDecks = (int)Math.Round(numberOfPlayers / 4d, 2);
+            var numberOfDecksRound = Math.Round(numberOfPlayers / 4d, 2) - numberOfDecks;
+
+            if (numberOfDecksRound > 0) numberOfDecks += 1;
+
+            return numberOfDecks;
         }
 
-        internal void Shuffle()
+        private void PrepareCards()
+        {
+            AddDecks();
+            Shuffle();
+        }
+
+        public CardManager(int numberOfPlayers, SpecialCardCalculator specialCardCalculator)
+        {
+            _numberOfDecks = GetNumberOfDecks(numberOfPlayers);
+            _specialCardCalculator = specialCardCalculator;
+        }
+
+        public void Deal(PlayerManager playerManager)
+        {
+            _playerManager = playerManager;
+
+            _cards.Clear();
+
+
+            var cardsToDeal = _playerManager.Players.Count * _specialCardCalculator.CardsToDeal;
+
+            playerManager.ResetCards();
+
+            for (int cardIndex = 0; cardIndex < cardsToDeal; cardIndex += playerManager.Players.Count)
+            {
+                int playerCardIndex = cardIndex;
+                foreach (var player in playerManager.Players)
+                {
+                    var card = _cards[playerCardIndex];
+                    Debug.Assert(!card.Dealt);
+
+                    player.DealCard(card);
+                    card.Dealt = true;
+                    playerCardIndex++;
+                }
+            }
+        }
+
+        private void Shuffle()
         {
             RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider();
 
@@ -48,7 +93,7 @@ namespace Pesten.GameEngine.Cards
             }
         }
 
-        internal bool AddDecks()
+        private bool AddDecks()
         {
             for (int i = 0; i < _numberOfDecks; i++)
             {

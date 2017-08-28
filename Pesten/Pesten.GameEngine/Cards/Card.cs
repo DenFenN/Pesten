@@ -7,6 +7,8 @@ namespace Pesten.GameEngine.Cards
     {
         public Guid Id { get; private set; }
 
+        public bool Dealt { get; set; }
+
         public Suit Suit { get; set; }
 
         public Face Face { get; set; }

@@ -7,6 +7,8 @@ namespace Pesten.GameEngine.SpecialCardCalculators
         public int NumberOfNormalCards = 52;
         public int NumberOfJokers = 3;
 
+        public int CardsToDeal = 7;
+
         public abstract bool IsSpecialCard(Face face);
 
         public abstract SpecialCardOption Option(Face face);

@@ -32,15 +32,18 @@
             this.listBoxCards = new System.Windows.Forms.ListBox();
             this.textBoxCardCount = new System.Windows.Forms.TextBox();
             this.lblCount = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxPlayers = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // buttonShuffle
             // 
-            this.buttonShuffle.Location = new System.Drawing.Point(353, 315);
+            this.buttonShuffle.Location = new System.Drawing.Point(205, 36);
             this.buttonShuffle.Name = "buttonShuffle";
             this.buttonShuffle.Size = new System.Drawing.Size(75, 23);
             this.buttonShuffle.TabIndex = 0;
-            this.buttonShuffle.Text = "button1";
+            this.buttonShuffle.Text = "Initialize";
             this.buttonShuffle.UseVisualStyleBackColor = true;
             this.buttonShuffle.Click += new System.EventHandler(this.buttonShuffle_Click);
             // 
@@ -71,11 +74,40 @@
             this.lblCount.TabIndex = 3;
             this.lblCount.Text = "Count:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(205, 65);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Deal";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBoxPlayers
+            // 
+            this.comboBoxPlayers.FormattingEnabled = true;
+            this.comboBoxPlayers.Location = new System.Drawing.Point(371, 36);
+            this.comboBoxPlayers.Name = "comboBoxPlayers";
+            this.comboBoxPlayers.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPlayers.TabIndex = 5;
+            this.comboBoxPlayers.SelectedIndexChanged += new System.EventHandler(this.comboBoxPlayers_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(371, 115);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(566, 40);
+            this.panel1.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 463);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.comboBoxPlayers);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.textBoxCardCount);
             this.Controls.Add(this.listBoxCards);
@@ -93,6 +125,9 @@
         private System.Windows.Forms.ListBox listBoxCards;
         private System.Windows.Forms.TextBox textBoxCardCount;
         private System.Windows.Forms.Label lblCount;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxPlayers;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

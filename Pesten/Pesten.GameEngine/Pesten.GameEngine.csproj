@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,6 +44,13 @@
   <ItemGroup>
     <Compile Include="Cards\Card.cs" />
     <Compile Include="Cards\CardManager.cs" />
+    <Compile Include="Cards\UserControlCards.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cards\UserControlCards.Designer.cs">
+      <DependentUpon>UserControlCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Players\PlayerComboboxItem.cs" />
     <Compile Include="Properties\InternalsVisibleTo.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PlayerManager.cs" />
@@ -54,6 +63,11 @@
     <Compile Include="Cards\Suit.cs" />
     <Compile Include="SpecialCardCalculators\SpecialCardCalculator.cs" />
     <Compile Include="SpecialCardCalculators\TienWasmasjienCardCalculator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cards\UserControlCards.resx">
+      <DependentUpon>UserControlCards.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
