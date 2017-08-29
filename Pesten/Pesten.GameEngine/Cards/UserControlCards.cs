@@ -5,14 +5,14 @@ namespace Pesten.GameEngine.Cards
 {
     public partial class UserControlCards : UserControl
     {
-        private readonly List<Card> _cards = new List<Card>();
+        private readonly List<ICard> _cards = new List<ICard>();
 
         public UserControlCards()
         {
             InitializeComponent();
         }
 
-        internal UserControlCards(IEnumerable<Card> cards) : this()
+        internal UserControlCards(IEnumerable<ICard> cards) : this()
         {
             tabControl1.TabPages.Clear();
 

@@ -3,13 +3,8 @@ using System.Collections.Generic;
 
 namespace Pesten.GameEngine.Players
 {
-    internal class PlayerManager
+    internal class PlayerManager :  IPlayerManager
     {
-        public int NumberOfPlayers { get; private set; }
-
-        private readonly List<Player> _players = new List<Player>();
-        public IReadOnlyList<Player> Players => _players;
-
         public PlayerManager(int numberOfPlayers)
         {
             if (numberOfPlayers < 2)
@@ -29,7 +24,11 @@ namespace Pesten.GameEngine.Players
             }
         }
 
-        private Guid AddPlayer(bool aiPlayer = false)
+        public readonly List<Player> _players = new List<Player>();
+
+        public int NumberOfPlayers { get; set; }
+
+        public Guid AddPlayer(bool aiPlayer = false)
         {
             var playerName = $"Player {_players.Count + 1}";
 
@@ -41,6 +40,8 @@ namespace Pesten.GameEngine.Players
 
             return Guid.Empty;
         }
+
+        public IReadOnlyList<Player> Players => _players;
 
         public void ResetCards()
         {

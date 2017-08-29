@@ -3,10 +3,15 @@ using Pesten.GameEngine.Cards;
 
 namespace Pesten.GameEngine.SpecialCardCalculators
 {
-    class DutchSpecialCardCalculator : SpecialCardCalculator
+    class DutchSpecialCardCalculator : ISpecialCardCalculator
     {
 
-        public override SpecialCardOption Option(Face face)
+        public int NumberOfNormalCards => 52;
+        public int NumberOfJokers => 3;
+
+        public int CardsToDeal => 7;
+
+        public SpecialCardOption Option(Face face)
         {
             switch (face)
             {
@@ -34,7 +39,7 @@ namespace Pesten.GameEngine.SpecialCardCalculators
             }
         }
 
-        public override bool IsSpecialCard(Face face)
+        public bool IsSpecialCard(Face face)
         {
             switch (face)
             {

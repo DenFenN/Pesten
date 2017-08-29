@@ -6,12 +6,12 @@ namespace Pesten.GameEngine.Players
 {
     class Player
     {
-        private readonly List<Card> _cards = new List<Card>();
+        private readonly List<ICard> _cards = new List<ICard>();
 
         public Guid Id { get; private set; }
         public bool IsAiPlayer { get; private set; }
         public string Name { get; private set; }
-        public IReadOnlyCollection<Card> Cards => _cards;
+        public IReadOnlyCollection<ICard> Cards => _cards;
 
 
         internal static bool TryCreateNewPlayer(bool aiPlayer, string playerName, out Player player)
@@ -25,7 +25,7 @@ namespace Pesten.GameEngine.Players
             _cards.Clear();
         }
 
-        public void DealCard(Card card)
+        public void DealCard(ICard card)
         {
             _cards.Add(card);
         }

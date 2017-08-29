@@ -7,17 +7,17 @@ using System.Security.Cryptography;
 
 namespace Pesten.GameEngine.Cards
 {
-    internal class CardManager
+    internal class CardManager: ICardManager
     {
-        public IReadOnlyList<Card> Cards => _cards;
+        public IReadOnlyList<ICard> Cards => _cards;
 
-        private readonly List<Card> _cards = new List<Card>();
-        private readonly List<Card> _stock = new List<Card>();
+        private readonly List<ICard> _cards = new List<ICard>();
+        private readonly List<ICard> _stock = new List<ICard>();
 
-        private PlayerManager _playerManager;
+        private IPlayerManager _playerManager;
 
         private int _numberOfDecks = 0;
-        private SpecialCardCalculator _specialCardCalculator;
+        private ISpecialCardCalculator _specialCardCalculator;
 
         private int GetNumberOfDecks(int numberOfPlayers)
         {
@@ -35,18 +35,17 @@ namespace Pesten.GameEngine.Cards
             Shuffle();
         }
 
-        public CardManager(int numberOfPlayers, SpecialCardCalculator specialCardCalculator)
+        public CardManager(int numberOfPlayers, ISpecialCardCalculator specialCardCalculator)
         {
             _numberOfDecks = GetNumberOfDecks(numberOfPlayers);
             _specialCardCalculator = specialCardCalculator;
         }
 
-        public void Deal(PlayerManager playerManager)
+        public void Deal(IPlayerManager playerManager)
         {
             _playerManager = playerManager;
 
-            _cards.Clear();
-
+            PrepareCards();
 
             var cardsToDeal = _playerManager.Players.Count * _specialCardCalculator.CardsToDeal;
 
@@ -95,6 +94,8 @@ namespace Pesten.GameEngine.Cards
 
         private bool AddDecks()
         {
+            _cards.Clear();
+
             for (int i = 0; i < _numberOfDecks; i++)
             {
                 // Add 'normal' cards (i.e. not Jokers):

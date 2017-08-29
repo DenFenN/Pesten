@@ -2,13 +2,13 @@
 
 namespace Pesten.GameEngine.SpecialCardCalculators
 {
-    class TienWasmasjienCardCalculator : SpecialCardCalculator
+    class TienWasmasjienCardCalculator : ISpecialCardCalculator
     {
+        public int NumberOfNormalCards => 52;
+        public int NumberOfJokers => 3;
+        public int CardsToDeal => 7;
 
-
-
-
-        public override SpecialCardOption Option(Face face)
+        public SpecialCardOption Option(Face face)
         {
             switch (face)
             {
@@ -39,8 +39,7 @@ namespace Pesten.GameEngine.SpecialCardCalculators
                     return SpecialCardOption.None;
             }
         }
-
-        public override bool IsSpecialCard(Face face)
+        public bool IsSpecialCard(Face face)
         {
             switch (face)
             {

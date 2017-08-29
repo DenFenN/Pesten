@@ -3,7 +3,7 @@ using System;
 
 namespace Pesten.GameEngine.Cards
 {
-    internal class Card
+    internal class Card : ICard
     {
         public Guid Id { get; private set; }
 
@@ -17,7 +17,7 @@ namespace Pesten.GameEngine.Cards
 
         public bool IsJoker { get; set; }
 
-        public Card(Suit suit, Face face, SpecialCardCalculator specialCardCalculator)
+        public Card(Suit suit, Face face, ISpecialCardCalculator specialCardCalculator)
         {
             Suit = suit;
             Face = face;
