@@ -9,5 +9,7 @@ namespace Pesten.GameEngine.Cards
 
         IReadOnlyList<ICard> Cards { get; }
 
+        ICard LastPlayedCard { get; }
+
     }
 }

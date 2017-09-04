@@ -35,6 +35,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBoxPlayers = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtLastPlayed = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonShuffle
@@ -100,11 +101,21 @@
             this.panel1.Size = new System.Drawing.Size(566, 40);
             this.panel1.TabIndex = 6;
             // 
+            // txtLastPlayed
+            // 
+            this.txtLastPlayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastPlayed.Location = new System.Drawing.Point(603, 53);
+            this.txtLastPlayed.Name = "txtLastPlayed";
+            this.txtLastPlayed.ReadOnly = true;
+            this.txtLastPlayed.Size = new System.Drawing.Size(227, 31);
+            this.txtLastPlayed.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 463);
+            this.Controls.Add(this.txtLastPlayed);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBoxPlayers);
             this.Controls.Add(this.button1);
@@ -128,6 +139,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBoxPlayers;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtLastPlayed;
     }
 }
 

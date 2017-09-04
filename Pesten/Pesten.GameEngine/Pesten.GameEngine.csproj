@@ -46,6 +46,7 @@
     <Compile Include="Cards\CardManager.cs" />
     <Compile Include="Cards\ICard.cs" />
     <Compile Include="Cards\ICardManager.cs" />
+    <Compile Include="Cards\ICardUserControl.cs" />
     <Compile Include="Cards\UserControlCards.cs">
       <SubType>UserControl</SubType>
     </Compile>

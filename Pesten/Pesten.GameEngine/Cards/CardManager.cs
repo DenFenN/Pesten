@@ -11,6 +11,8 @@ namespace Pesten.GameEngine.Cards
     {
         public IReadOnlyList<ICard> Cards => _cards;
 
+        private ICard _lastPlayedCard;
+
         private readonly List<ICard> _cards = new List<ICard>();
         private readonly List<ICard> _stock = new List<ICard>();
 
@@ -41,6 +43,8 @@ namespace Pesten.GameEngine.Cards
             _specialCardCalculator = specialCardCalculator;
         }
 
+        public ICard LastPlayedCard => _lastPlayedCard;
+
         public void Deal(IPlayerManager playerManager)
         {
             _playerManager = playerManager;
@@ -50,10 +54,11 @@ namespace Pesten.GameEngine.Cards
             var cardsToDeal = _playerManager.Players.Count * _specialCardCalculator.CardsToDeal;
 
             playerManager.ResetCards();
+            int cardIndex;
 
-            for (int cardIndex = 0; cardIndex < cardsToDeal; cardIndex += playerManager.Players.Count)
+            for (cardIndex = 0; cardIndex < cardsToDeal; cardIndex += playerManager.Players.Count)
             {
-                int playerCardIndex = cardIndex;
+                var playerCardIndex = cardIndex;
                 foreach (var player in playerManager.Players)
                 {
                     var card = _cards[playerCardIndex];
@@ -64,6 +69,8 @@ namespace Pesten.GameEngine.Cards
                     playerCardIndex++;
                 }
             }
+
+            _lastPlayedCard = _cards[cardIndex + 1];
         }
 
         private void Shuffle()

@@ -33,6 +33,8 @@ namespace Pesten.App
 
             FillCardsPanel();
 
+            txtLastPlayed.Text = Program.GameEngine._cardManager.LastPlayedCard.ToString();
+
         }
 
         private bool _initialFill = true;

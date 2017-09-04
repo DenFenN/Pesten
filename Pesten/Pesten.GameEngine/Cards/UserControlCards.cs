@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Pesten.GameEngine.Cards
 {
-    public partial class UserControlCards : UserControl
+    internal partial class UserControlCards : UserControl, ICardUserControl
     {
         private readonly List<ICard> _cards = new List<ICard>();
 
@@ -18,8 +18,46 @@ namespace Pesten.GameEngine.Cards
 
             foreach (var card in cards)
             {
-                tabControl1.TabPages.Add(card.ToString());
+                tabControl1.TabPages.Add(new CardTabPage(card));
+            }
+        }
+
+        public ICard GetSelectedCard()
+        {
+            if (tabControl1.SelectedTab != null)
+            {
+                if (tabControl1.SelectedTab is CardTabPage CardTabPage)
+                {
+                    return CardTabPage.Card;
+                }
+            }
+
+            return null;
+        }
+
+
+
+        private class CardTabPage : TabPage
+        {
+            private ICard _card;
+
+            internal ICard Card => _card;
+
+            public CardTabPage(ICard card)
+            {
+                _card = card;
+                Update();
+            }
+
+
+            public new void Update()
+            {
+                Text = _card.ToString();
+
+                base.Update();
             }
         }
     }
+
+
 }
