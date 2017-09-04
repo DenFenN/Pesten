@@ -65,6 +65,5 @@ namespace Pesten.GameEngine.Cards
 
             return result;
         }
-
     }
 }
